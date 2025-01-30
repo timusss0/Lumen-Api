@@ -18,16 +18,15 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $log = app('log');
-        $log->info('Creating user', ['data' => $request->all()]);
+        $data = $request->only(['name', 'email', 'age']);
     
         $user = User::create([
             'id' => (string) Str::uuid(),
-            'name' => $request->name,
-            'email' => $request->email,
-            'age' => $request->age,
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'age' => $data['age'],
         ]);
-    
+        
         return response()->json($user, 201);
     }
 
