@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+
+use Illuminate\Support\Str;
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
@@ -19,13 +21,24 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var string[]
      */
    
-    protected $table = 'users';
-    protected $primaryKey = 'id';
-    public $incrementing = false;
-    protected $keyType = 'string';
-
-    protected $fillable = ['name', 'email', 'age'];
-
+     protected $table = 'users';
+     protected $primaryKey = 'id';
+     public $incrementing = false; 
+     protected $keyType = 'string';  
+ 
+     protected $fillable = ['name', 'email', 'age'];
+ 
+     // Menambahkan UUID saat membuat user
+     public static function boot()
+     {
+         parent::boot();
+ 
+         static::creating(function ($user) {
+             if (empty($user->id)) {
+                 $user->id = (string) Str::uuid();  
+             }
+         });
+     }
     /**
      * The attributes excluded from the model's JSON form.
      *
