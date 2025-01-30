@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\View;
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -22,3 +23,16 @@ $router->post('/users',  ['middleware' => 'validate.Input', 'uses' => 'UserContr
 $router->get('/users/{id}', 'UserController@show');
 $router->put('/users/{id}', 'UserController@update');
 $router->delete('/users/{id}', 'UserController@destroy');
+
+$router->get('/docs/user-api.json', function () {
+    $filePath = base_path('docs/user-api.json');
+
+    if (!file_exists($filePath)) {
+        return response()->json(['error' => 'File not found'], 404);
+    }
+    return response()->file($filePath, ['Content-Type' => 'application/json']);
+});
+
+$router->get('/docs/user-api.json', function () {
+    return response()->json(json_decode(file_get_contents(base_path('docs/user-api.json'))));
+});

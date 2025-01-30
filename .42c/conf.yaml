@@ -1,0 +1,3 @@
+apis:
+  docs/user-api.json:
+    alias: lumen-api

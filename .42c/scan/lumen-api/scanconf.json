@@ -1,0 +1,296 @@
+{
+    "version": "2.0.0",
+    "runtimeConfiguration": {
+        "environment": "default",
+        "laxTestingModeEnabled": false,
+        "apiConnectivityCheck": true,
+        "logLevel": "error",
+        "logDestination": "stdout+platform",
+        "logMaxFileSize": 2147483648,
+        "requestHeaderNameRequestId": "x-scan-request-id",
+        "requestHeaderNameScenarioId": "x-scan-scenario-id",
+        "requestHeaderNameRequestType": "x-scan-request-type",
+        "requestFlowrate": 100,
+        "requestTimeout": 30,
+        "requestTlsInsecureSkipVerify": true,
+        "responseFollowRedirection": false,
+        "responseMaxBodySizeScan": 10485760,
+        "happyPathOnly": false,
+        "maxRequestRetryAttempts": 5,
+        "maxScanDuration": 1800,
+        "memoryLimit": 2147483648,
+        "memoryTimeSpan": 10,
+        "reportMaxRequestSizeHappyPath": 8092,
+        "reportMaxRequestSizeTest": 8092,
+        "reportIncludeRequestBody": true,
+        "reportIncludeResponseBody": true,
+        "reportMaxHttpResponseSizeHappyPath": 8092,
+        "reportMaxBodySizeHappyPath": 8092,
+        "reportMaxHttpResponseSizeTest": 8092,
+        "reportMaxBodySizeTest": 8092,
+        "reportIssuesOnly": false,
+        "reportMaxIssues": 1000,
+        "reportMaxSize": 20971520,
+        "reportGenerateCurlCommand": true
+    },
+    "customizations": {
+        "happyPaths": {
+            "retry": 1,
+            "responsePolicy": {
+                "httpStatusExpected": true,
+                "mustBeConformant": true
+            },
+            "httpStatusExpected": [
+                "2XX",
+                "404"
+            ]
+        },
+        "tests": {
+            "responsePolicy": {
+                "httpStatusExpected": true,
+                "mustBeConformant": true
+            }
+        },
+        "requests": {}
+    },
+    "operations": {
+        "createUser": {
+            "operationId": "createUser",
+            "scenarios": [
+                {
+                    "key": "happy.path",
+                    "fuzzing": true,
+                    "requests": [
+                        {
+                            "$ref": "#/operations/createUser/request",
+                            "fuzzing": true
+                        }
+                    ]
+                }
+            ],
+            "request": {
+                "operationId": "createUser",
+                "request": {
+                    "type": "42c",
+                    "details": {
+                        "url": "{{host}}/users",
+                        "method": "POST",
+                        "headers": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "requestBody": {
+                            "mode": "json",
+                            "json": {
+                                "age": 5290030100966185535,
+                                "email": "ivindpqopldxhmnwgosliiiqifqkwwbe",
+                                "name": "mvsywseundmnuuyargpiylcckkedznsm"
+                            }
+                        }
+                    }
+                },
+                "defaultResponse": "201",
+                "responses": {
+                    "201": {
+                        "expectations": {
+                            "httpStatus": 201
+                        }
+                    }
+                }
+            }
+        },
+        "deleteUser": {
+            "operationId": "deleteUser",
+            "scenarios": [
+                {
+                    "key": "happy.path",
+                    "fuzzing": true,
+                    "requests": [
+                        {
+                            "$ref": "#/operations/deleteUser/request",
+                            "fuzzing": true
+                        }
+                    ]
+                }
+            ],
+            "request": {
+                "operationId": "deleteUser",
+                "request": {
+                    "type": "42c",
+                    "details": {
+                        "url": "{{host}}/users/{id}",
+                        "method": "DELETE",
+                        "paths": [
+                            {
+                                "key": "id",
+                                "value": "qjzjzbjknppkzgntnavcplvjzzjizhaz"
+                            }
+                        ]
+                    }
+                },
+                "defaultResponse": "204",
+                "responses": {
+                    "204": {
+                        "expectations": {
+                            "httpStatus": 204
+                        }
+                    },
+                    "404": {
+                        "expectations": {
+                            "httpStatus": 404
+                        }
+                    }
+                }
+            }
+        },
+        "getUserById": {
+            "operationId": "getUserById",
+            "scenarios": [
+                {
+                    "key": "happy.path",
+                    "fuzzing": true,
+                    "requests": [
+                        {
+                            "$ref": "#/operations/getUserById/request",
+                            "fuzzing": true
+                        }
+                    ]
+                }
+            ],
+            "request": {
+                "operationId": "getUserById",
+                "request": {
+                    "type": "42c",
+                    "details": {
+                        "url": "{{host}}/users/{id}",
+                        "method": "GET",
+                        "paths": [
+                            {
+                                "key": "id",
+                                "value": "eowwffoeedxzqenpdqhmybimzppfhppt"
+                            }
+                        ]
+                    }
+                },
+                "defaultResponse": "200",
+                "responses": {
+                    "200": {
+                        "expectations": {
+                            "httpStatus": 200
+                        }
+                    },
+                    "404": {
+                        "expectations": {
+                            "httpStatus": 404
+                        }
+                    }
+                }
+            }
+        },
+        "getUsers": {
+            "operationId": "getUsers",
+            "scenarios": [
+                {
+                    "key": "happy.path",
+                    "fuzzing": true,
+                    "requests": [
+                        {
+                            "$ref": "#/operations/getUsers/request",
+                            "fuzzing": true
+                        }
+                    ]
+                }
+            ],
+            "request": {
+                "operationId": "getUsers",
+                "request": {
+                    "type": "42c",
+                    "details": {
+                        "url": "{{host}}/users",
+                        "method": "GET"
+                    }
+                },
+                "defaultResponse": "200",
+                "responses": {
+                    "200": {
+                        "expectations": {
+                            "httpStatus": 200
+                        }
+                    }
+                }
+            }
+        },
+        "updateUser": {
+            "operationId": "updateUser",
+            "scenarios": [
+                {
+                    "key": "happy.path",
+                    "fuzzing": true,
+                    "requests": [
+                        {
+                            "$ref": "#/operations/updateUser/request",
+                            "fuzzing": true
+                        }
+                    ]
+                }
+            ],
+            "request": {
+                "operationId": "updateUser",
+                "request": {
+                    "type": "42c",
+                    "details": {
+                        "url": "{{host}}/users/{id}",
+                        "method": "PUT",
+                        "paths": [
+                            {
+                                "key": "id",
+                                "value": "gfkwjxiqypzdhmynzzyrybjedcbreuan"
+                            }
+                        ],
+                        "headers": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "requestBody": {
+                            "mode": "json",
+                            "json": {
+                                "age": 1405182052998276135,
+                                "email": "zurecjsuqqaghmcyyynfqtovzuoehjxa",
+                                "name": "obnwedsudjgcgdnaiwucgzvkggnmjtuf"
+                            }
+                        }
+                    }
+                },
+                "defaultResponse": "200",
+                "responses": {
+                    "200": {
+                        "expectations": {
+                            "httpStatus": 200
+                        }
+                    },
+                    "404": {
+                        "expectations": {
+                            "httpStatus": 404
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "environments": {
+        "default": {
+            "variables": {
+                "host": {
+                    "from": "environment",
+                    "name": "SCAN42C_HOST",
+                    "required": false,
+                    "default": "http://localhost:8000/api"
+                }
+            }
+        }
+    }
+}
