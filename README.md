@@ -11,27 +11,29 @@ Proyek ini adalah API yang dibangun menggunakan Lumen, framework PHP yang ringan
 
 
 2. **Masuk ke Direktori Proyek**
-3 ```bash
-   cd Lumen-Api
+    ```bash
+     cd Lumen-Api
    
 4. **Instalasi Dependensi**
-5. ```bash
-    composer install
+     ```bash
+   composer install
 
 6.  **Konfigurasi Variabel Lingkungan**
-8. ```bash
+    ```bash
     cp .env.example .env
 
 9. **Generate Kunci Aplikasi**
+     ```bash
     php artisan key:generate
 
-10. **Migrasi Database**
+11. **Migrasi Database**
+    ```bash
     php artisan migrate
-   
-**Menjalankan Aplikasi Secara Lokal**
-**Untuk menjalankan server pengembangan, gunakan perintah berikut:**
 
-php -S localhost:8000 -t public
+**Menjalankan Aplikasi Secara Lokal**
+    **Untuk menjalankan server pengembangan, gunakan perintah berikut:**
+   
+        php -S localhost:8000 -t public
 
 **Akses aplikasi melalui browser di http://localhost:8000.**
 
