@@ -1,27 +1,56 @@
-# Lumen-Api
-# Lumen PHP Framework
+# Lumen API Project
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
+## Deskripsi
+Proyek ini adalah API yang dibangun menggunakan Lumen, framework PHP yang ringan dan cepat. API ini dirancang untuk memberikan akses ke data secara efisien dan dapat diintegrasikan dengan berbagai aplikasi.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Instruksi Instalasi
 
-> **Note:** In the years since releasing Lumen, PHP has made a variety of wonderful performance improvements. For this reason, along with the availability of [Laravel Octane](https://laravel.com/docs/octane), we no longer recommend that you begin new projects with Lumen. Instead, we recommend always beginning new projects with [Laravel](https://laravel.com).
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/timusss0/Lumen-Api.git
 
-## Official Documentation
+2. **Masuk ke Direktori Proyek**
+   cd Lumen-Api
+   
+4. **Instalasi Dependensi**
+    composer install
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+5.  **Konfigurasi Variabel Lingkungan**
+    cp .env.example .env
 
-## Contributing
+6. **Generate Kunci Aplikasi**
+    php artisan key:generate
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. **Migrasi Database**
+    php artisan migrate
+   
+**Menjalankan Aplikasi Secara Lokal**
+**Untuk menjalankan server pengembangan, gunakan perintah berikut:**
 
-## Security Vulnerabilities
+php -S localhost:8000 -t public
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+**Akses aplikasi melalui browser di http://localhost:8000.**
 
-## License
+### 2. File `.env.example`
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```plaintext
+# .env.example
+
+APP_NAME=Lumen
+APP_ENV=local
+APP_KEY=base64:YOUR_APP_KEY
+APP_DEBUG=true
+APP_URL=http://localhost
+
+# Database Configuration
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=lumen-db
+DB_USERNAME=root
+DB_PASSWORD=
+
+# Other Environment Variables
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
