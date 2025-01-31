@@ -1,4 +1,4 @@
-# Lumen API Project
+# 🌟 Lumen API Project
 
 ## Deskripsi
 Proyek ini adalah API yang dibangun menggunakan Lumen, framework PHP yang ringan dan cepat. API ini dirancang untuk memberikan akses ke data secara efisien dan dapat diintegrasikan dengan berbagai aplikasi.
@@ -9,19 +9,23 @@ Proyek ini adalah API yang dibangun menggunakan Lumen, framework PHP yang ringan
    ```bash
    git clone https://github.com/timusss0/Lumen-Api.git
 
+
 2. **Masuk ke Direktori Proyek**
+3 ```bash
    cd Lumen-Api
    
 4. **Instalasi Dependensi**
+5. ```bash
     composer install
 
-5.  **Konfigurasi Variabel Lingkungan**
+6.  **Konfigurasi Variabel Lingkungan**
+8. ```bash
     cp .env.example .env
 
-6. **Generate Kunci Aplikasi**
+9. **Generate Kunci Aplikasi**
     php artisan key:generate
 
-7. **Migrasi Database**
+10. **Migrasi Database**
     php artisan migrate
    
 **Menjalankan Aplikasi Secara Lokal**
