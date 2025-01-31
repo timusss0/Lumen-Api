@@ -30,6 +30,11 @@ Proyek ini adalah API yang dibangun menggunakan Lumen, framework PHP yang ringan
     ```bash
     php artisan migrate
 
+12. **Akses Dokumentasi API dengan Swagger UI:**
+     ```bash
+     http://localhost:8000/swagger/index.html
+
+ 
 **Menjalankan Aplikasi Secara Lokal**
     **Untuk menjalankan server pengembangan, gunakan perintah berikut:**
    
