@@ -19,7 +19,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/users', 'UserController@index');
-$router->post('/users',  ['middleware' => 'validate.Input', 'uses' => 'UserController@store']);
+$router->post('/users', ['middleware' => 'validate.input', 'uses' => 'UserController@store']);
 $router->get('/users/{id}', 'UserController@show');
 $router->put('/users/{id}', 'UserController@update');
 $router->delete('/users/{id}', 'UserController@destroy');

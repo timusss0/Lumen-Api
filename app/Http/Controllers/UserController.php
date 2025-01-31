@@ -18,18 +18,26 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->only(['name', 'email', 'age']);
-    
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'age' => 'required|integer|min:18',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
         $user = User::create([
             'id' => (string) Str::uuid(),
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'age' => $data['age'],
+            'name' => $request->name,
+            'email' => $request->email,
+            'age' => $request->age,
         ]);
-        
+
         return response()->json($user, 201);
     }
-
+    
     public function show($id)
     {
         $user = User::find($id);

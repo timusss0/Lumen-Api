@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ValidateInput
@@ -14,7 +15,7 @@ class ValidateInput
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, \Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         if ($request->isMethod('post')) {
             $validator = Validator::make($request->all(), [

@@ -75,13 +75,13 @@ $app->configure('view');
 */
 
 $app->middleware([
-    App\Http\Middleware\ExampleMiddleware::class,
     App\Http\Middleware\ValidateInput::class
 ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    'auth' => App\Http\Middleware\Authenticate::class,
+    'validate.input' => \App\Http\Middleware\ValidateInput::class,
+]);
 
 /*
 |--------------------------------------------------------------------------
